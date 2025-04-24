@@ -1,0 +1,54 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.hovedTittel {
+    display: flex;
+    justify-content: center;
+}
+.søkeMotorOmrise {
+    display: flex;
+    margin: 5vh;
+    flex-direction: column;
+    align-items: center;
+}
+.søk {
+    width: 50vh;
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 2vh;
+}
+.btn {
+    width: 10vh;
+    height: 5vh;
+    border-radius: 15px;
+}
+img {
+    width: 30vh;
+}
+.info {
+    display: flex;
+    
+}
+.infoContainer {
+    display: flex;
+    padding: 0px;
+    margin-left: 5vh;
+}
+.infoContainer *{
+    margin: 3px;
+}
+.infoContainer #tekstInfo{
+    margin-top: 5vh;
+}
+.infoContainer h5{
+    margin-top: 2vh;
+}
+.infoContainer p{
+    margin-top: 2vh;
+}
+.tekstInfo p {
+    width: 2vh;
+}
