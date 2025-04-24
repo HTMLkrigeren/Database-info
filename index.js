@@ -1,4 +1,3 @@
-
 var ansatte = [
     {
         ansattId: 1,
@@ -6,7 +5,9 @@ var ansatte = [
         etterNavn: "Pollos",
         stilling: "Prosjekt leder",
         ferdigheter: "bla bla bla ble ble ble blu blu blu, habababbababalululululubu",
-        bilde: "./bilder/don pollo.jpg"
+        bilde: "./bilder/don pollo.jpg",
+        hjemmeMobil: "838193210932109",
+        jobbMobil: "3198u135893485432109",
     },
     {
         ansattId: 2,
@@ -14,7 +15,9 @@ var ansatte = [
         etterNavn: "Dedekam",
         stilling: "vaktmester",
         ferdigheter: "Gamer, billiard bord, slapp, jobbet på kiwi, skummelt spill og dysleksi",
-        bilde: "./bilder/eik_dedekam.avif"
+        bilde: "./bilder/eik_dedekam.avif",
+        hjemmeMobil: "838193210932109",
+        jobbMobil: "3198u135893485432109",
     },
     {
         ansattId: 3,
@@ -22,7 +25,9 @@ var ansatte = [
         etterNavn: "Salabin",
         stilling: "Manager",
         ferdigheter: "jfsoijfejfdsojfndsoingfdoinfdoinbfdoinbjfdnboifdnoidnbi",
-        bilde: "./bilder/kobralim.jpg"
+        bilde: "./bilder/kobralim.jpg",
+        hjemmeMobil: "838193210932109",
+        jobbMobil: "3198u135893485432109",
     },
     {
         ansattId: 4,
@@ -30,7 +35,9 @@ var ansatte = [
         etterNavn: "Snekerbod",
         stilling: "Lærling",
         ferdigheter: "fdsfdsfdsgdsgds",
-        bilde: "./bilder/house.webp"
+        bilde: "./bilder/house.webp",
+        hjemmeMobil: "838193210932109",
+        jobbMobil: "3198u135893485432109",
     },
     {
         ansattId: 5,
@@ -38,19 +45,32 @@ var ansatte = [
         etterNavn: "Tomatketsjup",
         stilling: "Manager",
         ferdigheter: "fkdpogkfdokgpofdkgpofdgpodkfkpokf",
-        bilde: "./bilder/brit.jpg"
+        bilde: "./bilder/brit.jpg",
+        hjemmeMobil: "838193210932109",
+        jobbMobil: "3198u135893485432109",
     },
 ];
 
-ansatte.forEach(element => {
-    document.getElementById("btn").addEventListener("click", function () {
-        let inpt = document.getElementById("søk").value;
+document.getElementById("btn").addEventListener("click", function () {
+    let inpt = document.getElementById("søk").value.trim().toLowerCase();
 
-        if (inpt.toLowerCase() === element.forNavn.toLowerCase() || inpt.toLowerCase() === element.etterNavn.toLowerCase() || inpt.toLowerCase() === element.forNavn.toLowerCase() + " " + element.etterNavn.toLowerCase()) {
-            console.log(element.forNavn + " " + element.etterNavn);
-            document.getElementById("info").innerHTML = '';
-            document.getElementById("tekstInfo").innerHTML = '';
+    document.getElementById("info").innerHTML = '';
+    document.getElementById("tekstInfo").innerHTML = '';
+    document.getElementById("feilMelding").innerHTML = '';
 
+    let funnet = false;
+
+    ansatte.forEach(element => {
+
+        if (
+            inpt === element.forNavn.toLowerCase() ||
+            inpt === element.etterNavn.toLowerCase() ||
+            inpt === element.forNavn.toLowerCase() + " " + element.etterNavn.toLowerCase()
+        ) {
+            funnet = true;
+
+            console.log(element.ansattId);
+            
             let bilde = document.createElement("img");
             bilde.src = element.bilde;
             document.getElementById("info").append(bilde);
@@ -66,8 +86,20 @@ ansatte.forEach(element => {
             let stilling = document.createElement("h5");
             stilling.textContent = "Stilling; " + element.stilling;
             document.getElementById("tekstInfo").append(stilling);
-            
+
+            let mobilHjemme = document.createElement("h6");
+            mobilHjemme.textContent = "Privat telefon nummer; " + element.hjemmeMobil;
+            document.getElementById("tekstInfo").append(mobilHjemme);
+
+            let jobbMobil = document.createElement("h6");
+            jobbMobil.textContent = "Jobb telefon nummer; " + element.jobbMobil;
+            document.getElementById("tekstInfo").append(jobbMobil);
         }
-    })
-   
-})
+    });
+
+    if (!funnet) {
+        let feilMelding = document.createElement("p");
+        feilMelding.textContent = "Denne personen eksisterer ikke, sjekk om navnet er skrevet riktig.";
+        document.getElementById("feilMelding").append(feilMelding);
+    }
+});
