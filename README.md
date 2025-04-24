@@ -23,3 +23,4 @@ Når brukeren skriver inn tekst i søkefeltet, filtrerer JavaScript navnene og v
 3. Kobralim Salabin 
 4. Harribo Snekerbod
 5. Idun Tomatketsjup
+## efasfds
