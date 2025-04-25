@@ -63,9 +63,7 @@ document.getElementById("btn").addEventListener("click", function () {
     ansatte.forEach(element => {
 
         if (
-            inpt === element.forNavn.toLowerCase() ||
-            inpt === element.etterNavn.toLowerCase() ||
-            inpt === element.forNavn.toLowerCase() + " " + element.etterNavn.toLowerCase()
+            inpt === element.forNavn.toLowerCase() || inpt === element.etterNavn.toLowerCase() || inpt === element.forNavn.toLowerCase() + " " + element.etterNavn.toLowerCase()
         ) {
             funnet = true;
 
